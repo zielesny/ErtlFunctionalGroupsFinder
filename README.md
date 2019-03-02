@@ -1,6 +1,7 @@
 # ErtlFunctionalGroupsFinder
 
-The algorithm for automated functional groups detection and extraction of organic molecules developed by Peter Ertl is implemented on the basis of the Chemistry Development Kit (project team: Sebastian Fritsch, Stefan Neumann, Jonas Schaub, Christoph Steinbeck, Achim Zielesny).
+The algorithm for automated functional groups detection and extraction of organic molecules developed by Peter Ertl is implemented on the basis of the Chemistry Development Kit (CDK).<br/>
+(Project team: Sebastian Fritsch, Stefan Neumann, Jonas Schaub, Christoph Steinbeck, Achim Zielesny).
 
 Folder **Basic** contains the basic ErtlFunctionalGroupsFinder code and test code for integration in Java projects (see instructions in *Basic usage instructions.txt*).
 
