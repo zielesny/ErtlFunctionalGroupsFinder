@@ -1,6 +1,6 @@
 # ErtlFunctionalGroupsFinder
 
-The Ertl algorithm for automated functional groups detection and extraction of organic molecules is implemented on the basis of the [Chemistry Development Kit (CDK)](https://cdk.github.io/).
+The algorithm for automated functional groups detection and extraction of organic molecules developed by Peter Ertl is implemented on the basis of the Chemistry Development Kit (CDK).
 
 Folder **Basic** contains the basic ErtlFunctionalGroupsFinder code and test code for integration in Java projects (see instructions in *Basic usage instructions.txt*).
 
@@ -22,3 +22,6 @@ Chemistry Development Kit (CDK)<br/>
 * Steinbeck C, Hoppe C, Kuhn S, Floris M, Guha R, Willighagen EL. Recent Developments of the Chemistry Development Kit (CDK) - An Open-Source Java Library for Chemo- and Bioinformatics. Curr Pharm Des. 2006; 12(17):2111-2120.<br/>
 * May JW and Steinbeck C. Efficient ring perception for the Chemistry Development Kit. J. Cheminform. 2014; 6:3.<br/>
 * Willighagen EL, Mayfield JW, Alvarsson J, Berg A, Carlsson L, Jeliazkova N, Kuhn S, Pluska T, Rojas-Chertó M, Spjuth O, Torrance G, Evelo CT, Guha R, Steinbeck C, The Chemistry Development Kit (CDK) v2.0: atom typing, depiction, molecular formulas, and substructure searching. J Cheminform. 2017; 9:33.
+
+# Acknowledgments
+The authors like to thank Peter Ertl for describing his algorithm in a way that allowed easy re-implementation. This is not always the case. We also thank him for valuable discussions. We appreciate help from Egon Willighagen and John Mayfield with the CDK integration.
