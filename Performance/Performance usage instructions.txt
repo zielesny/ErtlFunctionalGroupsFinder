@@ -1,0 +1,21 @@
+--------------------------------------------------------------------------------
+Performance usage instructions with Java 1.8 (or higher)
+--------------------------------------------------------------------------------
+1. Install Java 1.8 on your machine (if necessary)
+2. Copy content of sub-folder "jar" to a destination directory on your 
+   machine with read/write access.
+3. Copy SD-file with your molecule library to the destination directory on your 
+   machine (you may use "ChEBI_lite_3star_subset.sdf" as a (small) test library).
+
+To run a performance test from the command line, go to the destination directory 
+on your machine and type:
+java -jar "ErtlFunctionalGroupsFinderPerformanceTest.jar" "sdFileName" numberOfThreads
+sdFilePathname : Name of the SD-file with your molecule library to test (must be 
+                 located in the same directory as 
+                 "ErtlFunctionalGroupsFinderPerformanceTest.jar")
+numberOfThreads: Number of parallel calculation threads (>= 1)
+You may wish to add additional JVM parameters in the command line (e.g. for 
+increased heap size to avoid an "out of memory" exception for large SD-files).
+
+Note: Sub-directory "src" contains the Java source code for 
+"ErtlFunctionalGroupsFinderPerformanceTest.jar".
