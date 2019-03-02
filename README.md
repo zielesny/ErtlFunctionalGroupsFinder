@@ -1,5 +1,4 @@
 # ErtlFunctionalGroupsFinder
-ErtlFunctionalGroupsFinder for CDK
 
 The Ertl algorithm for automated functional groups detection and extraction of organic molecules is implemented on the basis of the [Chemistry Development Kit (CDK)](https://cdk.github.io/).
 
@@ -14,10 +13,10 @@ Folder **Performance** contains a jar library for performance tests (see instruc
 ErtlFunctionalGroupsFinder is currently under scientific review - more detailed information will be available soon.
 
 # References
-Ertl algorithm:<br/>
+Ertl algorithm<br/>
 * Ertl P. An algorithm to identify functional groups in organic molecules. J Cheminform. 2017; 9:36.
 
-CDK:<br/>
+Chemistry Development Kit (CDK)<br/>
 * [Chemistry Development Kit (CDK) on GitHub](https://cdk.github.io/)<br/>
 * Steinbeck C, Han Y, Kuhn S, Horlacher O, Luttmann E, Willighagen EL. The Chemistry Development Kit (CDK): An Open-Source Java Library for Chemo- and Bioinformatics. J Chem Inform Comput Sci. 2003;43(2):493-500.<br/>
 * Steinbeck C, Hoppe C, Kuhn S, Floris M, Guha R, Willighagen EL. Recent Developments of the Chemistry Development Kit (CDK) - An Open-Source Java Library for Chemo- and Bioinformatics. Curr Pharm Des. 2006; 12(17):2111-2120.<br/>
