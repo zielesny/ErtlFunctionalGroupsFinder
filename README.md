@@ -9,6 +9,8 @@ Folder **CDK** contains CDK library jar file *cdk-2.2.jar* that ErtlFunctionalGr
 
 Folder **Evaluation** contains sample code for evaluation of functional groups with ErtlFunctionalGroupsFinder (see instructions in *Evaluation usage instructions.txt*).
 
+Folder **JUnit 4** contains library jar files for unit testing.
+
 Folder **Performance** contains a jar library for performance tests (see instructions in *Performance usage instructions.txt*).
 
 ErtlFunctionalGroupsFinder is currently under scientific review - more detailed information will be available soon.
