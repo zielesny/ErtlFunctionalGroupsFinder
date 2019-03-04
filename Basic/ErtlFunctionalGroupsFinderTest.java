@@ -23,7 +23,6 @@ package org.openscience.cdk.tools;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openscience.cdk.AtomContainer;
-import org.openscience.cdk.CDKTestCase;
 import org.openscience.cdk.DefaultChemObjectBuilder;
 import org.openscience.cdk.PseudoAtom;
 import org.openscience.cdk.aromaticity.Aromaticity;
@@ -50,7 +49,7 @@ import static org.hamcrest.Matchers.is;
  *
  * @author Sebastian Fritsch
  */
-public class ErtlFunctionalGroupsFinderTest extends CDKTestCase {
+public class ErtlFunctionalGroupsFinderTest {
 
     public ErtlFunctionalGroupsFinderTest() {
         super();
@@ -196,78 +195,15 @@ public class ErtlFunctionalGroupsFinderTest extends CDKTestCase {
     	testFind(moleculeSmiles, expectedFGs);
 	}
 	
-	@Test
-	public void testFindExtraS() throws Exception { 
-		String moleculeSmiles = "SCCSCC=S";
-    	String[] expectedFGs = new String[] {"HS[R]", "[R]S[R]", "[C]=S"};
-    	testFind(moleculeSmiles, expectedFGs);
-	}
-	
-	@Test
-	public void testFindExtraRNR() throws Exception {
-		String moleculeSmiles = "CCCCN=CCCC";
-    	String[] expectedFGs = new String[] {"[C]=N[R]"};
-    	testFind(moleculeSmiles, expectedFGs);
-	}
-	
-	@Test
-	public void testFindExtraPyridine() throws Exception {
-		String moleculeSmiles = "c1ccncc1";
-    	String[] expectedFGs = new String[] {"NarR3"};
-    	testFind(moleculeSmiles, expectedFGs);
-	}
-	
-	@Test
-	public void testFindExtraRRings1() throws Exception {
-		String moleculeSmiles = "C1N=CC=N1"; // avoid ring with X1-R-X2
-    	String[] expectedFGs = new String[] {"[R]N=CC=N[R]"};
-    	testFind(moleculeSmiles, expectedFGs);
-	}
-	
-	@Test
-	public void testFindExtraRRings2() throws Exception {
-		String moleculeSmiles = "C1CN=CNO1"; // avoid ring with X1-R-R-X2
-    	String[] expectedFGs = new String[] {"[R]ON([R])C=N[R]"};
-    	testFind(moleculeSmiles, expectedFGs);
-	}
-	
-	@Test
-	public void testFindExtraAromaticConnectedToAliphatic() throws Exception {
-		String moleculeSmiles = "OC(=O)n1cccc1";
-    	String[] expectedFGs = new String[] {"NarR2COOH"};
-    	testFind(moleculeSmiles, expectedFGs);
-	}
-	
-	@Test
-	public void testFindExtraEpoxide() throws Exception {
-		String moleculeSmiles = "ClCC1CO1"; // Epichlorohydrin
-    	String[] expectedFGs = new String[] {"[R]Cl", "[C]1[C]O1"};
-    	testFind(moleculeSmiles, expectedFGs);
-	}
-
-	@Test
-	public void testFindExtraExplicitHs() throws Exception {
-		String moleculeSmiles = "[H]N([H])[H]";
-		String[] expectedFGs = new String[] {"[R]N([R])[R]"};
-		testFind(moleculeSmiles, expectedFGs);
-	}
-	
-	@Test
-	public void testFindExtraSingleH() throws Exception {
-		String moleculeSmiles = "[H]";
-    	String[] expectedFGs = new String[] {};
-    	testFind(moleculeSmiles, expectedFGs);
-	}
-	
 	private void testFind(String moleculeSmiles, String[] fGStrings) throws Exception {
 		testFind(moleculeSmiles, fGStrings, new Aromaticity(ElectronDonation.daylight(), Cycles.all()));
 	}
 	
 	private void testFind(String moleculeSmiles, String[] fGStrings, Aromaticity aromaticity) throws Exception {
-    	// prepare input
+		// prepare input
 		SmilesParser smilesParser = new SmilesParser(DefaultChemObjectBuilder.getInstance());
-        IAtomContainer mol = smilesParser.parseSmiles(moleculeSmiles);
-        AtomContainerManipulator.percieveAtomTypesAndConfigureAtoms(mol);
+		IAtomContainer mol = smilesParser.parseSmiles(moleculeSmiles);
+		AtomContainerManipulator.percieveAtomTypesAndConfigureAtoms(mol);
 		aromaticity.apply(mol);
 
 		// find functional groups
@@ -275,15 +211,14 @@ public class ErtlFunctionalGroupsFinderTest extends CDKTestCase {
 		List<IAtomContainer> fGs = fgFinder.find(mol);
 
 		// get expected groups
-        List<IAtomContainer>	expectedFGs = new LinkedList<>();
-        for(String fGString : fGStrings) {
-        	expectedFGs.add(buildFunctionalGroup(fGString));
-        }
+		List<IAtomContainer> expectedFGs = new LinkedList<>();
+		for (String fGString : fGStrings) {
+			expectedFGs.add(buildFunctionalGroup(fGString));
+		}
 
-        // compare
-        this.assertIsomorphism(expectedFGs, fGs);
+		// compare
+		this.assertIsomorphism(expectedFGs, fGs);
 	}
-
 
     /**
      * NOTE: actual and expected functional groups must be in the same order!
@@ -312,14 +247,14 @@ public class ErtlFunctionalGroupsFinderTest extends CDKTestCase {
     		Mappings mappings = pattern.matchAll(cAct);
 
     		Map<IAtom, IAtom> atomMap = mappings.toAtomMap().iterator().next();
-    		for (Map.Entry<IAtom,IAtom> e : atomMap.entrySet()) {
+    		for (Map.Entry<IAtom, IAtom> e : atomMap.entrySet()) {
     	         IAtom atomExp  = e.getKey();
     	         IAtom atomAct = e.getValue();
     	         Assert.assertThat("Groups #" + i + ": Atom aromaticity does not match" + atomAct.getSymbol() + atomAct.isAromatic() + atomExp.getSymbol() + atomExp.isAromatic(), atomAct.isAromatic(), is(atomExp.isAromatic()));
     	     }
 
     		Map<IBond, IBond> bondMap = mappings.toBondMap().iterator().next();
-    		for (Map.Entry<IBond,IBond> e : bondMap.entrySet()) {
+    		for (Map.Entry<IBond, IBond> e : bondMap.entrySet()) {
     	         IBond bondExp  = e.getKey();
     	         IBond bondAct = e.getValue();
     	         Assert.assertThat("Groups #" + i + ": Bond aromaticity does not match", bondAct.isAromatic(), is(bondExp.isAromatic()));
@@ -328,10 +263,10 @@ public class ErtlFunctionalGroupsFinderTest extends CDKTestCase {
     }
     
     private IAtomContainer buildFunctionalGroup(String string) {
-        IAtom 					a1, a2, a3, a4, a5, a6, a7, a8, a9;
-        IBond 					b1, b2, b3, b4, b5, b6, b7, b8, b9;
-        IChemObjectBuilder 		builder = DefaultChemObjectBuilder.getInstance();
-        IAtomContainer 			container;
+        IAtom a1, a2, a3, a4, a5, a6, a7, a8, a9;
+        IBond b1, b2, b3, b4, b5, b6, b7, b8, b9;
+        IChemObjectBuilder builder = DefaultChemObjectBuilder.getInstance();
+        IAtomContainer container;
 
         // custom templates
         switch(string) {
@@ -377,28 +312,6 @@ public class ErtlFunctionalGroupsFinderTest extends CDKTestCase {
             container = new AtomContainer();
             container.setAtoms(new IAtom[] {a1, a2, a3});
             container.setBonds(new IBond[] {b1, b2});
-            return container;
-            
-        case "NarR2COOH":
-        	a1 = builder.newInstance(IPseudoAtom.class, "R");
-        	a2 = builder.newInstance(IPseudoAtom.class, "R");
-            a3 = builder.newInstance(IAtom.class, "N");
-            a3.setIsAromatic(true);
-            a4 = builder.newInstance(IAtom.class, "C");
-            a5 = builder.newInstance(IAtom.class, "O");
-            a6 = builder.newInstance(IAtom.class, "O");
-            a7 = builder.newInstance(IAtom.class, "H");
-            
-            b1 = builder.newInstance(IBond.class, a1, a3, Order.SINGLE);
-            b2 = builder.newInstance(IBond.class, a2, a3, Order.SINGLE);
-            b3 = builder.newInstance(IBond.class, a3, a4, Order.SINGLE);
-            b4 = builder.newInstance(IBond.class, a4, a5, Order.DOUBLE);
-            b5 = builder.newInstance(IBond.class, a4, a6, Order.SINGLE);
-            b6 = builder.newInstance(IBond.class, a6, a7, Order.SINGLE);
-                    
-            container = new AtomContainer();
-            container.setAtoms(new IAtom[] {a1, a2, a3, a4, a5, a6, a7});
-            container.setBonds(new IBond[] {b1, b2, b3, b4, b5, b6});
             return container;
 
             // smiles
