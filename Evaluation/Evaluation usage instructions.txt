@@ -7,10 +7,12 @@ Evaluation usage instructions with your Java IDE of choice and Java 1.8
    https://github.com/junit-team/junit4/wiki/Download-and-Install)
 2. Add "cdk-2.2.jar" library (located in super directory "CDK") to the Java 
    project (if necessary)
-3. Create package "org.openscience.cdk.tools" (if necessary) and import files 
-   "ErtlFunctionalGroupsFinder.java" and 
-   "ErtlFunctionalGroupsFinderEvaluationTest.java" into this package 
-4. Specify full path and name of "ChEBI_lite_3star_subset.sdf" in line
+3. Create package "org.openscience.cdk.tools" (if necessary) and import file 
+   "ErtlFunctionalGroupsFinder.java". Create package 
+   "org.openscience.cdk.tools.test" (if necessary) and import file
+   "ErtlFunctionalGroupsFinderEvaluationTest.java".
+4. Open "ErtlFunctionalGroupsFinderEvaluationTest.java" and specify full path 
+   and name of "ChEBI_lite_3star_subset.sdf" in line
    private static final String SD_FILE_PATH = "...\\ChEBI_lite_3star_subset.sdf";
 
 Now you should be able to 

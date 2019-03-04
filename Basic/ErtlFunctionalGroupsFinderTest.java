@@ -17,7 +17,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.openscience.cdk.tools;
+package org.openscience.cdk.tools.test;
 
 
 import org.junit.Assert;
@@ -36,6 +36,7 @@ import org.openscience.cdk.isomorphism.Pattern;
 import org.openscience.cdk.isomorphism.VentoFoggia;
 import org.openscience.cdk.smiles.SmilesParser;
 import org.openscience.cdk.tools.manipulator.AtomContainerManipulator;
+import org.openscience.cdk.tools.ErtlFunctionalGroupsFinder;
 
 import java.util.LinkedList;
 import java.util.List;

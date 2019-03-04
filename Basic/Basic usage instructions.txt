@@ -6,11 +6,12 @@ Basic usage instructions with your Java IDE of choice and Java 1.8 (or higher)
    https://github.com/junit-team/junit4/wiki/Download-and-Install)
 2. Add "cdk-2.2.jar" library (located in super directory "CDK") to the Java 
    project (if necessary)
-3. Create package "org.openscience.cdk.tools" (if necessary) and import files 
-   "ErtlFunctionalGroupsFinder.java" and "ErtlFunctionalGroupsFinderTest.java" 
-   into this package 
+3. Create package "org.openscience.cdk.tools" (if necessary) and import file 
+   "ErtlFunctionalGroupsFinder.java". Create package 
+   "org.openscience.cdk.tools.test" (if necessary) and import file 
+   "ErtlFunctionalGroupsFinderTest.java".
 
 Now you should be able to 
 - build the project,
 - run all unit tests in "ErtlFunctionalGroupsFinderTest.java" and 
-- use "ErtlFunctionalGroupsFinder.java" for functional groups analysis. 
+- use "ErtlFunctionalGroupsFinder.java" for functional groups analysis.

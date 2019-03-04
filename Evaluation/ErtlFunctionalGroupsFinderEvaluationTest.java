@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.openscience.cdk.tools;
+package org.openscience.cdk.tools.test;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -40,7 +40,6 @@ import org.junit.Assume;
 import org.junit.Test;
 import org.openscience.cdk.Atom;
 import org.openscience.cdk.CDKConstants;
-import org.openscience.cdk.CDKTestCase;
 import org.openscience.cdk.DefaultChemObjectBuilder;
 import org.openscience.cdk.aromaticity.Aromaticity;
 import org.openscience.cdk.aromaticity.ElectronDonation;
@@ -66,6 +65,7 @@ import org.openscience.cdk.smiles.SmilesParser;
 import org.openscience.cdk.tools.ErtlFunctionalGroupsFinder.Mode;
 import org.openscience.cdk.tools.manipulator.AtomContainerManipulator;
 import org.openscience.cdk.tools.manipulator.AtomTypeManipulator;
+import org.openscience.cdk.tools.ErtlFunctionalGroupsFinder;
 
 
 /**
@@ -83,7 +83,7 @@ import org.openscience.cdk.tools.manipulator.AtomTypeManipulator;
  * @author Jonas Schaub
  * @version 1.0.0.0
  */
-public class ErtlFunctionalGroupsFinderEvaluationTest extends CDKTestCase {
+public class ErtlFunctionalGroupsFinderEvaluationTest {
     
     //<editor-fold defaultstate="collapsed" desc="Private static final constants">
     
