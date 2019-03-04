@@ -41,8 +41,6 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-import static org.hamcrest.Matchers.is;
-
 
 /**
  * Test for ErtlFunctionalGroupsFinder.
@@ -228,21 +226,21 @@ public class ErtlFunctionalGroupsFinderTest {
      * @throws Exception	if anything does not work as planned
      */
     private void assertIsomorphism(List<IAtomContainer> expectedFGs, List<IAtomContainer> actualFGs) {
-    	Assert.assertThat("Number of functional groups does not match the expected number of groups",
-				actualFGs.size(), is(expectedFGs.size()));
+    	Assert.assertEquals("Number of functional groups does not match the expected number of groups",
+                expectedFGs.size(), actualFGs.size());
 
 		for(int i = 0; i < expectedFGs.size(); i++) {
     		IAtomContainer cExp = expectedFGs.get(i);
     		IAtomContainer cAct = actualFGs.get(i);
-    		
-    		Assert.assertThat("Groups #" + i + ": different atom count",
-					cAct.getAtomCount(), is(cExp.getAtomCount()));
-    		Assert.assertThat("Groups #" + i + ": different bond count",
-					cAct.getBondCount(), is(cExp.getBondCount()));
+
+    		Assert.assertEquals("Groups #" + i + ": different atom count",
+                    cExp.getAtomCount(), cAct.getAtomCount());
+    		Assert.assertEquals("Groups #" + i + ": different bond count",
+					cExp.getBondCount(),  cAct.getBondCount());
 
 			Pattern pattern = VentoFoggia.findIdentical(cExp);
 
-			Assert.assertThat("Groups #" + i + ": not isomorph", pattern.matches(cAct), is(true));
+			Assert.assertTrue("Groups #" + i + ": not isomorph", pattern.matches(cAct));
     		
     		Mappings mappings = pattern.matchAll(cAct);
 
@@ -250,14 +248,16 @@ public class ErtlFunctionalGroupsFinderTest {
     		for (Map.Entry<IAtom, IAtom> e : atomMap.entrySet()) {
     	         IAtom atomExp  = e.getKey();
     	         IAtom atomAct = e.getValue();
-    	         Assert.assertThat("Groups #" + i + ": Atom aromaticity does not match" + atomAct.getSymbol() + atomAct.isAromatic() + atomExp.getSymbol() + atomExp.isAromatic(), atomAct.isAromatic(), is(atomExp.isAromatic()));
+    	         Assert.assertEquals("Groups #" + i + ": Atom aromaticity does not match" + atomAct.getSymbol() + atomAct.isAromatic() + atomExp.getSymbol() + atomExp.isAromatic(),
+                         atomExp.isAromatic(), atomAct.isAromatic());
     	     }
 
     		Map<IBond, IBond> bondMap = mappings.toBondMap().iterator().next();
     		for (Map.Entry<IBond, IBond> e : bondMap.entrySet()) {
     	         IBond bondExp  = e.getKey();
     	         IBond bondAct = e.getValue();
-    	         Assert.assertThat("Groups #" + i + ": Bond aromaticity does not match", bondAct.isAromatic(), is(bondExp.isAromatic()));
+    	         Assert.assertEquals("Groups #" + i + ": Bond aromaticity does not match",
+                         bondExp.isAromatic(), bondAct.isAromatic());
     	     }
     	}
     }
