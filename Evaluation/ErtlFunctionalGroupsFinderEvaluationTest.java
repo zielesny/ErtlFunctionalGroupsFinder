@@ -66,6 +66,7 @@ import org.openscience.cdk.tools.ErtlFunctionalGroupsFinder.Mode;
 import org.openscience.cdk.tools.manipulator.AtomContainerManipulator;
 import org.openscience.cdk.tools.manipulator.AtomTypeManipulator;
 import org.openscience.cdk.tools.ErtlFunctionalGroupsFinder;
+import org.openscience.cdk.tools.CDKHydrogenAdder;
 
 
 /**
