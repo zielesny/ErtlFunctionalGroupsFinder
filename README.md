@@ -16,7 +16,7 @@ Folder **Performance** contains a jar library for performance tests (see instruc
 ErtlFunctionalGroupsFinder is currently under scientific review - more detailed information will be available soon.
 
 # Acknowledgments
-The authors like to thank Peter Ertl for describing his algorithm in a way that allowed easy re-implementation. This is not always the case. We also thank him for valuable discussions. We appreciate help from Egon Willighagen and John Mayfield with the CDK integration.
+The authors like to thank Peter Ertl for describing his algorithm in a way that allowed easy re-implementation. This is not always the case. We also thank him for valuable discussions. We appreciate help from Egon Willighagen and John Mayfield with the CDK integration and from Felix Bänsch for unbiased release testing.
 
 # References
 **Ertl algorithm**<br/>
