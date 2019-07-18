@@ -20,10 +20,10 @@ The authors like to thank Peter Ertl for describing his algorithm in a way that 
 
 # References
 **ErtlFunctionalGroupsFinder**<br/>
-* [Fritsch S, Neumann S, Schaub J, Steinbeck C, Zielesny A. ErtlFunctionalGroupsFinder: automated rule-based functional group detection with the Chemistry Development Kit (CDK). J Cheminform. 2019; 11:37] (https://doi.org/10.1186/s13321-019-0361-8)
+* [Fritsch S, Neumann S, Schaub J, Steinbeck C, Zielesny A. ErtlFunctionalGroupsFinder: automated rule-based functional group detection with the Chemistry Development Kit (CDK). J Cheminform. 2019; 11:37](https://doi.org/10.1186/s13321-019-0361-8)
 
 **Ertl algorithm**<br/>
-* [Ertl P. An algorithm to identify functional groups in organic molecules. J Cheminform. 2017; 9:36.] (https://doi.org/10.1186/s13321-017-0225-z)
+* [Ertl P. An algorithm to identify functional groups in organic molecules. J Cheminform. 2017; 9:36.](https://doi.org/10.1186/s13321-017-0225-z)
 
 **Chemistry Development Kit (CDK)**<br/>
 * [Chemistry Development Kit on GitHub](https://cdk.github.io/)<br/>
