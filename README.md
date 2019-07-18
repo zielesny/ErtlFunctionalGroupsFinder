@@ -13,14 +13,17 @@ Folder **JUnit 4** contains library jar files for unit testing.
 
 Folder **Performance** contains a jar library for performance tests (see instructions in *Performance usage instructions.txt*).
 
-ErtlFunctionalGroupsFinder is currently under scientific review - more detailed information will be available soon.
+ErtlFunctionalGroupsFinder is described in the scientific literature (see reference below).
 
 # Acknowledgments
 The authors like to thank Peter Ertl for describing his algorithm in a way that allowed easy re-implementation. This is not always the case. We also thank him for valuable discussions. We appreciate help from Egon Willighagen and John Mayfield with the CDK integration and from Felix Bänsch for unbiased release testing.
 
 # References
+**ErtlFunctionalGroupsFinder**<br/>
+* [Fritsch S, Neumann S, Schaub J, Steinbeck C, Zielesny A. ErtlFunctionalGroupsFinder: automated rule-based functional group detection with the Chemistry Development Kit (CDK). J Cheminform. 2019; 11:37] (https://doi.org/10.1186/s13321-019-0361-8)
+
 **Ertl algorithm**<br/>
-* Ertl P. An algorithm to identify functional groups in organic molecules. J Cheminform. 2017; 9:36.
+* [Ertl P. An algorithm to identify functional groups in organic molecules. J Cheminform. 2017; 9:36.] (https://doi.org/10.1186/s13321-017-0225-z)
 
 **Chemistry Development Kit (CDK)**<br/>
 * [Chemistry Development Kit on GitHub](https://cdk.github.io/)<br/>
