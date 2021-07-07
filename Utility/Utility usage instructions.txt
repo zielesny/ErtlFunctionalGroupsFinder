@@ -3,7 +3,7 @@ Utility usage instructions with your Java IDE of choice and Java 1.8 (or higher)
 --------------------------------------------------------------------------------
 1. Create new or open existing Java project with unit testing
    (JUnit version 4 or higher - for download & install instructions see 
-   https://github.com/junit-team/junit4/wiki/Download-and-Install. As an 
+   https://github.com/junit-team/junit4/wiki/Download-and-Install). As an 
    alternative you may directly add jar libraries "junit-4.12.jar" and 
    "hamcrest-core-1.3.jar" - located in super directory "JUnit 4" - for unit 
    testing).
