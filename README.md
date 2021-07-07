@@ -13,6 +13,8 @@ Folder **JUnit 4** contains library jar files for unit testing.
 
 Folder **Performance** contains a jar library for performance tests (see instructions in *Performance usage instructions.txt*).
 
+Folder **Utility** contains code for filtering, preprocessing, and postprocessing routines useful for evaluation of functional groups with ErtlFunctionalGroupsFinder (see instructions in *Utility usage instructions.txt*).
+
 ErtlFunctionalGroupsFinder is described in the scientific literature (see reference below).
 
 # Acknowledgments
