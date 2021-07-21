@@ -58,7 +58,7 @@ import java.util.logging.Logger;
  * evaluating the ErtlFunctionalGroupsFinder, as described in the publication.
  *
  * @author Jonas Schaub
- * @version 1.0.1.0
+ * @version 1.0.1.1
  */
 public class ErtlFunctionalGroupsFinderUtility {
     //<editor-fold defaultstate="collapsed" desc="Enum CustomAtomEncoder">
@@ -724,7 +724,7 @@ public class ErtlFunctionalGroupsFinderUtility {
             IAtomContainer tmpFG = aListOfFunctionalGroups.get(i);
             //convert explicit hydrogens to implicit
             if (aConvertExplicitHydrogens) {
-                ErtlFunctionalGroupsFinderUtility.convertExplicitToImplicitHydrogens(tmpFG);
+                AtomContainerManipulator.suppressHydrogens(tmpFG);
             }
             //create a list of all atoms of the group because of atom removals and additions in group atom container
             List<IAtom> tmpListofFGatoms = new ArrayList<>();
@@ -870,40 +870,6 @@ public class ErtlFunctionalGroupsFinderUtility {
     //</editor-fold>
     //
     //<editor-fold desc="Private methods">
-    /**
-     * Converts all explicit hydrogen atoms in the given molecule to implicit hydrogens, increasing the respective counters
-     * on the heavy atom objects. Note that the given atom container object is altered.
-     *
-     * @param aMolecule the structure the convert all explicit hydrogens of
-     * @throws NullPointerException if the given molecule is null
-     * @author Michael Wenk, Jonas Schaub
-     */
-    private static void convertExplicitToImplicitHydrogens(IAtomContainer aMolecule) throws NullPointerException {
-        Objects.requireNonNull(aMolecule, "Given molecule is null.");
-        if (aMolecule.isEmpty()) {
-            return;
-        }
-        List<IAtom> tmpRemoveList = new ArrayList<>();
-        IAtom tmpAtomB;
-        for (IAtom tmpAtomA : aMolecule.atoms()) {
-            //check each atom for whether it is a hydrogen;
-            // if yes, increase the number of implicit hydrogens for its connected heavy atom
-            if (tmpAtomA.getAtomicNumber().equals(1)) {
-                tmpAtomB = aMolecule.getConnectedAtomsList(tmpAtomA).get(0);
-                //precaution for unset property
-                if (tmpAtomB.getImplicitHydrogenCount() == null) {
-                    tmpAtomB.setImplicitHydrogenCount(0);
-                }
-                tmpAtomB.setImplicitHydrogenCount(tmpAtomB.getImplicitHydrogenCount() + 1);
-                tmpRemoveList.add(tmpAtomA);
-            }
-        }
-        //remove all explicit hydrogen atoms from the molecule
-        for (IAtom tmpAtom : tmpRemoveList) {
-            aMolecule.removeAtom(tmpAtom);
-        }
-    }
-
     /**
      * Returns the CDK title or ID of the given molecule.
      *
