@@ -1,4 +1,4 @@
-/**
+/*
  * Test of Utilities for ErtlFunctionalGroupsFinder for CDK
  * Copyright (C) 2021 Jonas Schaub
  *

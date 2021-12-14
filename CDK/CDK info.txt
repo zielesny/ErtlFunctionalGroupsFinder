@@ -1,1 +1,1 @@
-"cdk-2.2.jar" is the Chemistry Development Kit (CDK) library "ErtlFunctionalGroupsFinder.java" was developed for.
+"cdk-2.6.jar" is the Chemistry Development Kit (CDK) library "ErtlFunctionalGroupsFinder.java" was developed for.
