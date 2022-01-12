@@ -5,7 +5,7 @@ The algorithm for automated functional groups detection and extraction of organi
 
 Folder **Basic** contains the basic ErtlFunctionalGroupsFinder code and test code for integration in Java projects (see instructions in *Basic usage instructions.txt*).
 
-Folder **CDK** contains CDK library jar file *cdk-2.6.jar* that ErtlFunctionalGroupsFinder works with.
+Folder **CDK** contains CDK library jar file *cdk-2.7.1.jar* that ErtlFunctionalGroupsFinder works with.
 
 Folder **Evaluation** contains sample code for evaluation of functional groups with ErtlFunctionalGroupsFinder (see instructions in *Evaluation usage instructions.txt*).
 

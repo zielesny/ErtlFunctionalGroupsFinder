@@ -7,7 +7,7 @@ Utility usage instructions with your Java IDE of choice and Java 1.8 (or higher)
    alternative you may directly add jar libraries "junit-4.12.jar" and 
    "hamcrest-core-1.3.jar" - located in super directory "JUnit 4" - for unit 
    testing).
-2. Add "cdk-2.2.jar" library - located in super directory "CDK" - to the Java 
+2. Add "cdk-2.7.1.jar" library - located in super directory "CDK" - to the Java 
    project (if necessary)
 3. Create package "org.openscience.cdk.tools" (if necessary) and import files 
    "ErtlFunctionalGroupsFinder.java" and 
