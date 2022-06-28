@@ -1,6 +1,6 @@
 /**
  * ErtlFunctionalGroupsFinder for CDK
- * Copyright (C) 2019 Sebastian Fritsch
+ * Copyright (C) 2022 Sebastian Fritsch
  * 
  * Source code is available at <https://github.com/zielesny/ErtlFunctionalGroupsFinder>
  * 
@@ -29,8 +29,12 @@ import org.openscience.cdk.aromaticity.Aromaticity;
 import org.openscience.cdk.aromaticity.ElectronDonation;
 import org.openscience.cdk.exception.InvalidSmilesException;
 import org.openscience.cdk.graph.Cycles;
-import org.openscience.cdk.interfaces.*;
+import org.openscience.cdk.interfaces.IAtom;
+import org.openscience.cdk.interfaces.IAtomContainer;
+import org.openscience.cdk.interfaces.IBond;
 import org.openscience.cdk.interfaces.IBond.Order;
+import org.openscience.cdk.interfaces.IChemObjectBuilder;
+import org.openscience.cdk.interfaces.IPseudoAtom;
 import org.openscience.cdk.isomorphism.Mappings;
 import org.openscience.cdk.isomorphism.Pattern;
 import org.openscience.cdk.isomorphism.VentoFoggia;
@@ -47,6 +51,7 @@ import java.util.Map;
  * Test for ErtlFunctionalGroupsFinder.
  *
  * @author Sebastian Fritsch
+ * @version 1.0.0.0
  */
 public class ErtlFunctionalGroupsFinderTest {
 
