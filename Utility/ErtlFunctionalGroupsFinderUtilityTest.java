@@ -1,6 +1,6 @@
 /*
  * Test of Utilities for ErtlFunctionalGroupsFinder for CDK
- * Copyright (C) 2021 Jonas Schaub
+ * Copyright (C) 2022 Jonas Schaub
  *
  * Source code is available at <https://github.com/zielesny/ErtlFunctionalGroupsFinder>
  *
@@ -182,12 +182,12 @@ public class ErtlFunctionalGroupsFinderUtilityTest {
         for (IAtomContainer tmpFG : tmpFGList) {
             System.out.println(tmpSmiGen.create(tmpFG));
         }
-        ErtlFunctionalGroupsFinderUtility.restoreOriginalEnvironmentalCarbons(tmpFGList, tmpMolecule, false, false);
+        ErtlFunctionalGroupsFinderUtility.restoreOriginalEnvironmentalCarbons(tmpFGList, tmpMolecule, false, false, DefaultChemObjectBuilder.getInstance());
         System.out.println("FGs with full environment, environmental carbons restored:");
         for (IAtomContainer tmpFG : tmpFGList) {
             System.out.println(tmpSmiGen.create(tmpFG));
         }
-        ErtlFunctionalGroupsFinderUtility.restoreOriginalEnvironmentalCarbons(tmpFGList, tmpMolecule, true, true);
+        ErtlFunctionalGroupsFinderUtility.restoreOriginalEnvironmentalCarbons(tmpFGList, tmpMolecule, true, true, DefaultChemObjectBuilder.getInstance());
         System.out.println("FGs with full environment, environmental carbons restored, explicit hydrogens removed and empty valences filled:");
         for (IAtomContainer tmpFG : tmpFGList) {
             System.out.println(tmpSmiGen.create(tmpFG));
@@ -200,12 +200,12 @@ public class ErtlFunctionalGroupsFinderUtilityTest {
         for (IAtomContainer tmpFG : tmpFGList) {
             System.out.println(tmpSmiGen.create(tmpFG));
         }
-        ErtlFunctionalGroupsFinderUtility.restoreOriginalEnvironmentalCarbons(tmpFGList, tmpMolecule, false, false);
+        ErtlFunctionalGroupsFinderUtility.restoreOriginalEnvironmentalCarbons(tmpFGList, tmpMolecule, false, false, DefaultChemObjectBuilder.getInstance());
         System.out.println("FGs with generalized environment, environmental carbons restored:");
         for (IAtomContainer tmpFG : tmpFGList) {
             System.out.println(tmpSmiGen.create(tmpFG));
         }
-        ErtlFunctionalGroupsFinderUtility.restoreOriginalEnvironmentalCarbons(tmpFGList, tmpMolecule, true, true);
+        ErtlFunctionalGroupsFinderUtility.restoreOriginalEnvironmentalCarbons(tmpFGList, tmpMolecule, true, true, DefaultChemObjectBuilder.getInstance());
         System.out.println("FGs with generalized environment, environmental carbons restored, explicit hydrogens removed and empty valences filled:");
         for (IAtomContainer tmpFG : tmpFGList) {
             System.out.println(tmpSmiGen.create(tmpFG));
