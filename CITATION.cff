@@ -1,0 +1,47 @@
+cff-version: 1.2.0
+title: ErtlFunctionalGroupsFinder
+version: 1.1.1
+message: "If you use this software, please cite it as below and also cite the accompanying scientific publication referenced below."
+type: software
+authors:
+  - family-names: "Fritsch"
+    given-names: "Sebastian"
+    orcid: "https://orcid.org/0000-0002-0368-700X"
+  - family-names: "Neumann"
+    given-names: "Stefan"
+  - family-names: "Schaub"
+    given-names: "Jonas"
+    orcid: "https://orcid.org/0000-0003-1554-6666"
+  - family-names: "Steinbeck"
+    given-names: "Christoph"
+    orcid: "https://orcid.org/0000-0001-6966-0814"
+  - family-names: "Zielesny"
+    given-names: "Achim"
+    orcid: "https://orcid.org/0000-0003-0722-4229"
+date-released: 2022-01-13
+url: "https://github.com/zielesny/ErtlFunctionalGroupsFinder"
+license: LGPL-2.1
+references:
+  - authors:
+      - family-names: "Fritsch"
+        given-names: "Sebastian"
+        orcid: "https://orcid.org/0000-0002-0368-700X"
+      - family-names: "Neumann"
+        given-names: "Stefan"
+      - family-names: "Schaub"
+        given-names: "Jonas"
+        orcid: "https://orcid.org/0000-0003-1554-6666"
+      - family-names: "Steinbeck"
+        given-names: "Christoph"
+        orcid: "https://orcid.org/0000-0001-6966-0814"
+      - family-names: "Zielesny"
+        given-names: "Achim"
+        orcid: "https://orcid.org/0000-0003-0722-4229"
+    doi: "10.1186/s13321-019-0361-8"
+    issue: 1
+    journal: "J Cheminform"
+    scope: "Cite this paper if you want to reference the general concepts of the software."
+    title: "ErtlFunctionalGroupsFinder: automated rule-based functional group detection with the Chemistry Development Kit (CDK)"
+    type: article
+    volume: 11
+    year: 2019
