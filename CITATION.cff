@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 title: ErtlFunctionalGroupsFinder
-version: 1.1.1
+version: 1.1.2
 message: "If you use this software, please cite it as below and also cite the accompanying scientific publication referenced below."
 type: software
 authors:
@@ -18,9 +18,10 @@ authors:
   - family-names: "Zielesny"
     given-names: "Achim"
     orcid: "https://orcid.org/0000-0003-0722-4229"
-date-released: 2022-01-13
+date-released: 2022-09-22
 url: "https://github.com/zielesny/ErtlFunctionalGroupsFinder"
 license: LGPL-2.1
+doi: "10.5281/zenodo.7105728"
 references:
   - authors:
       - family-names: "Fritsch"
