@@ -1,7 +1,7 @@
 --------------------------------------------------------------------------------
 Performance usage instructions with Java 1.8 (or higher)
 --------------------------------------------------------------------------------
-1. Install Java 1.8 on your machine (if necessary)
+1. Install Java 1.8 (or higher) on your machine (if necessary)
 2. Copy content of sub-folder "jar" to a destination directory on your 
    machine with read/write access.
 3. Copy SD-file with your molecule library to the destination directory on your 
