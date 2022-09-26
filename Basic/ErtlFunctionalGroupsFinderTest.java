@@ -23,7 +23,6 @@ package org.openscience.cdk.tools.test;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openscience.cdk.AtomContainer;
-import org.openscience.cdk.DefaultChemObjectBuilder;
 import org.openscience.cdk.PseudoAtom;
 import org.openscience.cdk.aromaticity.Aromaticity;
 import org.openscience.cdk.aromaticity.ElectronDonation;
@@ -38,6 +37,7 @@ import org.openscience.cdk.interfaces.IPseudoAtom;
 import org.openscience.cdk.isomorphism.Mappings;
 import org.openscience.cdk.isomorphism.Pattern;
 import org.openscience.cdk.isomorphism.VentoFoggia;
+import org.openscience.cdk.silent.SilentChemObjectBuilder;
 import org.openscience.cdk.smiles.SmilesParser;
 import org.openscience.cdk.tools.manipulator.AtomContainerManipulator;
 import org.openscience.cdk.tools.ErtlFunctionalGroupsFinder;
@@ -51,7 +51,7 @@ import java.util.Map;
  * Test for ErtlFunctionalGroupsFinder.
  *
  * @author Sebastian Fritsch
- * @version 1.0.0.0
+ * @version 1.0.0.1
  */
 public class ErtlFunctionalGroupsFinderTest {
 
@@ -205,7 +205,7 @@ public class ErtlFunctionalGroupsFinderTest {
 	
 	private void testFind(String moleculeSmiles, String[] fGStrings, Aromaticity aromaticity) throws Exception {
 		// prepare input
-		SmilesParser smilesParser = new SmilesParser(DefaultChemObjectBuilder.getInstance());
+		SmilesParser smilesParser = new SmilesParser(SilentChemObjectBuilder.getInstance());
 		IAtomContainer mol = smilesParser.parseSmiles(moleculeSmiles);
 		AtomContainerManipulator.percieveAtomTypesAndConfigureAtoms(mol);
 		aromaticity.apply(mol);
@@ -271,7 +271,7 @@ public class ErtlFunctionalGroupsFinderTest {
     private IAtomContainer buildFunctionalGroup(String string) {
         IAtom a1, a2, a3, a4, a5, a6, a7, a8, a9;
         IBond b1, b2, b3, b4, b5, b6, b7, b8, b9;
-        IChemObjectBuilder builder = DefaultChemObjectBuilder.getInstance();
+        IChemObjectBuilder builder = SilentChemObjectBuilder.getInstance();
         IAtomContainer container;
 
         // custom templates
@@ -323,7 +323,7 @@ public class ErtlFunctionalGroupsFinderTest {
             // smiles
         default:
         	try {
-        		SmilesParser smilesParser = new SmilesParser(DefaultChemObjectBuilder.getInstance());
+        		SmilesParser smilesParser = new SmilesParser(SilentChemObjectBuilder.getInstance());
         		try {
         			if(string.equals("[c]=O"))
         				smilesParser.kekulise(false);

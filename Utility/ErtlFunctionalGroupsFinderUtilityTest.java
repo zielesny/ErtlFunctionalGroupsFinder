@@ -21,11 +21,11 @@ package org.openscience.cdk.tools.test;
 
 import org.junit.Assert;
 import org.junit.Test;
-import org.openscience.cdk.DefaultChemObjectBuilder;
 import org.openscience.cdk.aromaticity.Aromaticity;
 import org.openscience.cdk.hash.MoleculeHashGenerator;
 import org.openscience.cdk.interfaces.IAtom;
 import org.openscience.cdk.interfaces.IAtomContainer;
+import org.openscience.cdk.silent.SilentChemObjectBuilder;
 import org.openscience.cdk.smiles.SmiFlavor;
 import org.openscience.cdk.smiles.SmilesGenerator;
 import org.openscience.cdk.smiles.SmilesParser;
@@ -41,7 +41,7 @@ import java.util.List;
  * Tests functionalities of ErtlFunctionalGroupsFinderUtility class.
  *
  * @author Jonas Schaub
- * @version 1.0.1.0
+ * @version 1.0.1.1
  */
 public class ErtlFunctionalGroupsFinderUtilityTest {
     /**
@@ -63,7 +63,7 @@ public class ErtlFunctionalGroupsFinderUtilityTest {
         //The CDK SmilesParser cannot parse the element Uup, it gets turned into a wildcard ('*')
         tmpTestPairsMap.put("[Uup]", "R");
         tmpTestPairsMap.put("[se]", "[Se*]");
-        SmilesParser tmpSmilesParser = new SmilesParser(DefaultChemObjectBuilder.getInstance());
+        SmilesParser tmpSmilesParser = new SmilesParser(SilentChemObjectBuilder.getInstance());
         tmpSmilesParser.kekulise(false);
         IAtomContainer tmpTestMolecule;
         String tmpPseudoSmilesCode;
@@ -81,7 +81,7 @@ public class ErtlFunctionalGroupsFinderUtilityTest {
      */
     @Test
     public void testMoleculeHashGeneratorSettings() throws Exception {
-        SmilesParser tmpSmilesParser = new SmilesParser(DefaultChemObjectBuilder.getInstance());
+        SmilesParser tmpSmilesParser = new SmilesParser(SilentChemObjectBuilder.getInstance());
         ErtlFunctionalGroupsFinder tmpGeneralizingEFGF = ErtlFunctionalGroupsFinderUtility.getErtlFunctionalGroupsFinderGeneralizingMode();
         MoleculeHashGenerator tmpHashGenerator = ErtlFunctionalGroupsFinderUtility.getFunctionalGroupHashGenerator();
         /*Chebi70986, Chebi16238 and Chebi57692 all contain the same functional group with pseudo SMILES code
@@ -154,7 +154,7 @@ public class ErtlFunctionalGroupsFinderUtilityTest {
     @Test
     public void testPreprocessing() throws Exception {
         String tmpSmiles = "CC[O-].C";
-        SmilesParser tmpSmilesParser = new SmilesParser(DefaultChemObjectBuilder.getInstance());
+        SmilesParser tmpSmilesParser = new SmilesParser(SilentChemObjectBuilder.getInstance());
         IAtomContainer tmpMol = tmpSmilesParser.parseSmiles(tmpSmiles);
         Assert.assertTrue(ErtlFunctionalGroupsFinderUtility.shouldBePreprocessed(tmpMol));
         Assert.assertFalse(ErtlFunctionalGroupsFinderUtility.shouldBeFiltered(tmpMol));
@@ -171,7 +171,7 @@ public class ErtlFunctionalGroupsFinderUtilityTest {
      */
     @Test
     public void testRestorationOfEnvironmentalCarbons() throws Exception {
-        SmilesParser tmpSmiPar = new SmilesParser(DefaultChemObjectBuilder.getInstance());
+        SmilesParser tmpSmiPar = new SmilesParser(SilentChemObjectBuilder.getInstance());
         SmilesGenerator tmpSmiGen = new SmilesGenerator(SmiFlavor.Unique);
         //Adenophostin B, COCONUT ID CNP0214672
         IAtomContainer tmpMolecule = tmpSmiPar.parseSmiles("O=C(OCC1OC(OC2C(OC(N3C=NC=4C(=NC=NC43)N)C2OP(=O)(O)O)CO)C(O)C(OP(=O)(O)O)C1OP(=O)(O)O)C");
@@ -182,12 +182,12 @@ public class ErtlFunctionalGroupsFinderUtilityTest {
         for (IAtomContainer tmpFG : tmpFGList) {
             System.out.println(tmpSmiGen.create(tmpFG));
         }
-        ErtlFunctionalGroupsFinderUtility.restoreOriginalEnvironmentalCarbons(tmpFGList, tmpMolecule, false, false, DefaultChemObjectBuilder.getInstance());
+        ErtlFunctionalGroupsFinderUtility.restoreOriginalEnvironmentalCarbons(tmpFGList, tmpMolecule, false, false, SilentChemObjectBuilder.getInstance());
         System.out.println("FGs with full environment, environmental carbons restored:");
         for (IAtomContainer tmpFG : tmpFGList) {
             System.out.println(tmpSmiGen.create(tmpFG));
         }
-        ErtlFunctionalGroupsFinderUtility.restoreOriginalEnvironmentalCarbons(tmpFGList, tmpMolecule, true, true, DefaultChemObjectBuilder.getInstance());
+        ErtlFunctionalGroupsFinderUtility.restoreOriginalEnvironmentalCarbons(tmpFGList, tmpMolecule, true, true, SilentChemObjectBuilder.getInstance());
         System.out.println("FGs with full environment, environmental carbons restored, explicit hydrogens removed and empty valences filled:");
         for (IAtomContainer tmpFG : tmpFGList) {
             System.out.println(tmpSmiGen.create(tmpFG));
@@ -200,12 +200,12 @@ public class ErtlFunctionalGroupsFinderUtilityTest {
         for (IAtomContainer tmpFG : tmpFGList) {
             System.out.println(tmpSmiGen.create(tmpFG));
         }
-        ErtlFunctionalGroupsFinderUtility.restoreOriginalEnvironmentalCarbons(tmpFGList, tmpMolecule, false, false, DefaultChemObjectBuilder.getInstance());
+        ErtlFunctionalGroupsFinderUtility.restoreOriginalEnvironmentalCarbons(tmpFGList, tmpMolecule, false, false, SilentChemObjectBuilder.getInstance());
         System.out.println("FGs with generalized environment, environmental carbons restored:");
         for (IAtomContainer tmpFG : tmpFGList) {
             System.out.println(tmpSmiGen.create(tmpFG));
         }
-        ErtlFunctionalGroupsFinderUtility.restoreOriginalEnvironmentalCarbons(tmpFGList, tmpMolecule, true, true, DefaultChemObjectBuilder.getInstance());
+        ErtlFunctionalGroupsFinderUtility.restoreOriginalEnvironmentalCarbons(tmpFGList, tmpMolecule, true, true, SilentChemObjectBuilder.getInstance());
         System.out.println("FGs with generalized environment, environmental carbons restored, explicit hydrogens removed and empty valences filled:");
         for (IAtomContainer tmpFG : tmpFGList) {
             System.out.println(tmpSmiGen.create(tmpFG));
@@ -220,7 +220,7 @@ public class ErtlFunctionalGroupsFinderUtilityTest {
      */
     @Test
     public void testOnMolecule() throws Exception {
-        SmilesParser tmpSmiPar = new SmilesParser(DefaultChemObjectBuilder.getInstance());
+        SmilesParser tmpSmiPar = new SmilesParser(SilentChemObjectBuilder.getInstance());
         //CHEMBL1201736
         IAtomContainer tmpMolecule = tmpSmiPar.parseSmiles("CO/N=C(\\C(=O)N[C@@H]1C(=O)N2C(C(=O)[O-])=C(C[N+]3(C)CCCC3)CS[C@H]12)c1csc(N)n1.Cl");
         Assert.assertTrue(ErtlFunctionalGroupsFinderUtility.isStructureUnconnected(tmpMolecule));
@@ -251,7 +251,7 @@ public class ErtlFunctionalGroupsFinderUtilityTest {
      */
     @Test
     public void testFindMarkedAtoms() throws Exception {
-        SmilesParser tmpSmiPar = new SmilesParser(DefaultChemObjectBuilder.getInstance());
+        SmilesParser tmpSmiPar = new SmilesParser(SilentChemObjectBuilder.getInstance());
         //CHEMBL1201736
         IAtomContainer tmpMolecule = tmpSmiPar.parseSmiles("CO/N=C(\\C(=O)N[C@@H]1C(=O)N2C(C(=O)[O-])=C(C[N+]3(C)CCCC3)CS[C@H]12)c1csc(N)n1.Cl");
         tmpMolecule = ErtlFunctionalGroupsFinderUtility.applyFiltersAndPreprocessing(tmpMolecule, Aromaticity.cdkLegacy());

@@ -40,7 +40,6 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import org.openscience.cdk.CDKConstants;
-import org.openscience.cdk.DefaultChemObjectBuilder;
 import org.openscience.cdk.aromaticity.Aromaticity;
 import org.openscience.cdk.aromaticity.ElectronDonation;
 import org.openscience.cdk.atomtype.CDKAtomTypeMatcher;
@@ -53,6 +52,7 @@ import org.openscience.cdk.interfaces.IAtomContainer;
 import org.openscience.cdk.interfaces.IAtomContainerSet;
 import org.openscience.cdk.interfaces.IAtomType;
 import org.openscience.cdk.io.iterator.IteratingSDFReader;
+import org.openscience.cdk.silent.SilentChemObjectBuilder;
 import org.openscience.cdk.tools.CDKHydrogenAdder;
 import org.openscience.cdk.tools.manipulator.AtomContainerManipulator;
 import org.openscience.cdk.tools.manipulator.AtomTypeManipulator;
@@ -62,6 +62,7 @@ import org.openscience.cdk.tools.manipulator.AtomTypeManipulator;
  * multiple threads. 
  * 
  * @author Jonas Schaub
+ * @version 1.0.0.1
  */
 public class ErtlFunctionalGroupsFinderPerformanceTest {
     
@@ -175,7 +176,7 @@ public class ErtlFunctionalGroupsFinderPerformanceTest {
             tmpResultsPrintWriter.flush();
             System.out.println("\nApplication initialized. Loading database file named " + anArgs[0] + ".");
             IteratingSDFReader tmpDBReader = new IteratingSDFReader(tmpDBFileInputStream,
-                    DefaultChemObjectBuilder.getInstance(),
+                    SilentChemObjectBuilder.getInstance(),
                     true);
             List<IAtomContainer> tmpMoleculesList = new LinkedList<>();
             while (tmpDBReader.hasNext()) {

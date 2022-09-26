@@ -40,7 +40,6 @@ import org.junit.Assume;
 import org.junit.Test;
 import org.openscience.cdk.Atom;
 import org.openscience.cdk.CDKConstants;
-import org.openscience.cdk.DefaultChemObjectBuilder;
 import org.openscience.cdk.aromaticity.Aromaticity;
 import org.openscience.cdk.aromaticity.ElectronDonation;
 import org.openscience.cdk.atomtype.CDKAtomTypeMatcher;
@@ -59,6 +58,7 @@ import org.openscience.cdk.interfaces.IAtomType;
 import org.openscience.cdk.interfaces.IBond;
 import org.openscience.cdk.interfaces.IPseudoAtom;
 import org.openscience.cdk.io.iterator.IteratingSDFReader;
+import org.openscience.cdk.silent.SilentChemObjectBuilder;
 import org.openscience.cdk.smiles.SmiFlavor;
 import org.openscience.cdk.smiles.SmilesGenerator;
 import org.openscience.cdk.smiles.SmilesParser;
@@ -82,7 +82,7 @@ import org.openscience.cdk.tools.CDKHydrogenAdder;
  * that assumption).
  * 
  * @author Jonas Schaub
- * @version 1.0.0.0
+ * @version 1.0.0.1
  */
 public class ErtlFunctionalGroupsFinderEvaluationTest {
     
@@ -529,7 +529,7 @@ public class ErtlFunctionalGroupsFinderEvaluationTest {
         try {
             for (int i = 0; i < tmpRequiredNumberOfReaders; i++) {
                 IteratingSDFReader tmpReader = new IteratingSDFReader(new FileInputStream(tmpSDFile),
-                        DefaultChemObjectBuilder.getInstance(), true);
+                        SilentChemObjectBuilder.getInstance(), true);
                 tmpReaders[i] = tmpReader;
             }
         } catch (FileNotFoundException aFileNotFoundException) {
@@ -585,7 +585,7 @@ public class ErtlFunctionalGroupsFinderEvaluationTest {
         IteratingSDFReader tmpReader;
         try {
             tmpReader = new IteratingSDFReader(new FileInputStream(tmpSDFile),
-                    DefaultChemObjectBuilder.getInstance(), true);
+                    SilentChemObjectBuilder.getInstance(), true);
         } catch (FileNotFoundException aFileNotFoundException) {
             System.out.println("\nSD file could not be found. Test is ignored.");
             Assume.assumeTrue(false);
@@ -630,7 +630,7 @@ public class ErtlFunctionalGroupsFinderEvaluationTest {
     @Test
     public void testMoleculeHashGeneratorSettings() throws Exception {
         this.initialize(false, "");
-        SmilesParser tmpSmilesParser = new SmilesParser(DefaultChemObjectBuilder.getInstance());
+        SmilesParser tmpSmilesParser = new SmilesParser(SilentChemObjectBuilder.getInstance());
         
         /*Chebi70986, Chebi16238 and Chebi57692 all contain the same functional group with pseudo SMILES code
         "O=C1N=C(C(=NR)C(=O)N1R)N(R)R", but different hybridizations in the resulting atom containers. But their hash
@@ -706,7 +706,7 @@ public class ErtlFunctionalGroupsFinderEvaluationTest {
     public void testPreprocessing() throws Exception {
         this.initialize(false, "");
         String tmpSmiles = "CC[O-].C";
-    	SmilesParser tmpSmilesParser = new SmilesParser(DefaultChemObjectBuilder.getInstance());
+    	SmilesParser tmpSmilesParser = new SmilesParser(SilentChemObjectBuilder.getInstance());
         IAtomContainer tmpMol = tmpSmilesParser.parseSmiles(tmpSmiles);
         tmpMol = this.applyFiltersAndPreprocessing(tmpMol);
 	SmilesGenerator tmpGenerator = SmilesGenerator.unique();
@@ -741,7 +741,7 @@ public class ErtlFunctionalGroupsFinderEvaluationTest {
         try {
             for (int i = 0; i < tmpRequiredNumberOfReaders; i++) {
                 IteratingSDFReader tmpReader = new IteratingSDFReader(new FileInputStream(tmpSDFile),
-                        DefaultChemObjectBuilder.getInstance(), true);
+                        SilentChemObjectBuilder.getInstance(), true);
                 tmpReaders[i] = tmpReader;
             }
         } catch (FileNotFoundException aFileNotFoundException) {
