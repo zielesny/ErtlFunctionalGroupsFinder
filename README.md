@@ -16,6 +16,9 @@ Folder **Performance** contains a jar library for performance tests (see instruc
 Folder **Utility** contains code for filtering, preprocessing, and postprocessing routines useful for evaluation of functional groups with ErtlFunctionalGroupsFinder (see instructions in *Utility usage instructions.txt*).
 
 ErtlFunctionalGroupsFinder is described in the scientific literature (see reference below).
+<br>ErtlFunctionalGroupsFinder is also available in the open Java rich client application MORTAR ('MOlecule fRagmenTation fRamework')
+where <i>in silico</i> molecule fragmentation can be easily conducted on a given data set and the results visualised
+([MORTAR GitHub repository](https://github.com/FelixBaensch/MORTAR), [MORTAR article preprint](https://doi.org/10.26434/chemrxiv-2022-zgg8s)).
 
 # Acknowledgments
 The authors like to thank Peter Ertl for describing his algorithm in a way that allowed easy re-implementation. This is not always the case. We also thank him for valuable discussions. We appreciate help from Egon Willighagen and John Mayfield with the CDK integration and from Felix Bänsch for unbiased release testing.
