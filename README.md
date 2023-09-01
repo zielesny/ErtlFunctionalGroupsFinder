@@ -1,3 +1,5 @@
+![ErtlFunctionalGroupsFinder_logo](./Logo/Ertl.png)
+
 # ErtlFunctionalGroupsFinder
 
 The algorithm for automated functional groups detection and extraction of organic molecules developed by Peter Ertl is implemented on the basis of the Chemistry Development Kit (CDK).<br/>
